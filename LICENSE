@@ -1,21 +1,164 @@
-MIT License
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Başlıksız Belge</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
 
-Copyright (c) 2021 KaraBanBa
+/* ~~ Öğe/etiket seçiciler ~~ */
+ul, ol, dl { /* Tarayıcıların arasındaki çeşitlemelerden dolayı, listelerde dolgu ve kenar boşluğunu sıfırlamakta fayda vardır. Tutarlılık sağlamak için, istediğiniz miktarları burada veya içerdikleri liste öğelerinde (LI, DT, DD) belirtebilirsiniz. Burada yaptığınızın siz daha belirli bir seçici yazmadığınız sürece .nav listesine basamaklanacağını unutmayın.
+ */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* üst kenar boşluğunu kaldırmak kenar boşluklarının onları içeren div’den kaçabilecekleri bir duruma sebep olur. Kalan alt kenar boşluğu onu takip eden herhangi bir öğeden uzak tutar. */
+	padding-right: 15px;
+	padding-left: 15px; /* div’lerin kendisinin yerine onların içindeki öğelerin kenarlarına dolgu eklemek, herhangi bir kutu modeli matematiğinin olmamasını sağlar. Ayrıca kenar dolgulu bir yuvalanmış div de alternatif bir yöntem olarak kullanılabilir. */
+}
+a img { /* bu seçici, bazı tarayıcılarda görüntü bir bağla çevrelendiğinde görüntünün etrafında görüntülenen varsayılan mavi kenarlığı kaldırır */
+	border: none;
+}
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+/* ~~ Sitenizin bağlarının stili, hover efektini oluşturan seçiciler grubu da dahil olmak üzere, şu sırada kalmalıdır. ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* bağlarınıza aşırı derecede benzersiz görüneceği şekilde stil vermediğiniz sürece, hızlı görsel tanımlama olabilmesi için yapılabilecek en iyi şey alt çizgi sağlamaktır.  */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* bu seçiciler grubu, bir klavye gezginine fare kullanan bir kişiyle aynı hover (üzerine gelme) deneyimini sağlayacaktır. */
+	text-decoration: none;
+}
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+/* ~~bu sabit genişlik kabı diğer div’leri çevreler~~ */
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* genişlik ile eşleştirilen kenarlardaki otomatik değer, mizanpajı ortalar */
+}
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+/* ~~üstbilgi belirli bir genişlik değildir. Mizanpajınızın tüm genişliğini uzatır. Sizin kendi bağlı logonuzla değiştirilmesi gereken bir görüntü yer tutucusu içerir~~ */
+.header {
+	background-color: #ADB96E;
+}
+
+/* ~~ Bunlar mizanpaj sütunlarıdır. ~~  
+
+1) Dolgu yalnızca div’lerin üst ve/veya alt kısmına yerleştirilir. Bu dolguların içindeki öğelerin kenarlarında dolgu vardır. Bu sizi herhangi bir "kutu modeli matematiğinden" kurtarır. Div’in kendisine herhangi bir kenar dolgusu veya kenarlık eklerseniz, bu *toplam* genişliği oluşturmak için tanımladığınız genişliğe eklenir. Ayrıca div’deki öğenin dolgusunu kaldırıp içine genişliği olmayan yeni bir div ve tasarımınız için gerekli olan dolguyu yerleştirmeyi de seçebilirsiniz. Ayrıca, div’deki öğenin dolgusunu kaldırıp içine genişliği olmayan ikinci bir div ve tasarımınız için gerekli olan dolguyu yerleştirebilirsiniz.
+
+2) Hepsi yüzdürüldüğünden, sütunlara herhangi bir kenar boşluğu eklenmedi. Bir kenar boşluğu eklemeniz gerekiyorsa, onu yüzdürdüğünüz tarafa yerleştirmekten kaçının (örneğin: sağa yüzecek şekilde ayarlanan bir sağ kenar boşluğu). Çoğu zaman, onun yerine dolgu kullanılabilir. Bu kuralın kırılması gereken div’ler için, Internet Explorer’ın çift kenar boşluğuna sahip olduğu bazı sürümlerindeki bir hatayı gidermek amacıyla, div’in kuralına bir "display:inline " bildirimi eklemeniz gerekir.
+
+3) Sınıflar bir belgede bir kereden fazla kullanılabildiği için ( ve bir öğeye de birden çok sınıf uygulanabildiğinden), sütunlara kimlikler yerine sınıf adları eklenmiştir. Örneğin, iki yan çubuk div’i gerektiğinde yığınlanabilir. Tercihiniz buysa, belge başına bir kere kullandığınız sürece bunlar kolaylıkla kimlikler olarak değiştirilebilir.
+
+4) Gezinme çubuğunuzun sol yerine sağ tarafta olmasını tercih ediyorsanız, bu sütunları ters yönde yüzdürmeniz yeterlidir (hepsini sola yüzdürmek yerine hepsini sağa yüzdürmek) ve böylece ters sırada yüzeceklerdir. Bir HTML kaynağında div’lerin yerini oynatmaya gerek yoktur.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 780px;
+	float: left;
+}
+
+/* ~~ Bu gruplanan seçici .content alanındaki listeleri verir ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* bu dolgu yukarıda üstbilgilerdeki ve paragraf kuralındaki sağ dolguyu yansıtır. Dolgu, listelerdeki diğer öğeler arasındaki alan için alta ve satırbaşını oluşturmak için sola yerleştirilir. Bunlar istediğiniz gibi ayarlanabilir.  */
+}
+
+/* ~~ Gezinme listesi stilleri (Spry gibi bir önceden yapılmış açılır pencere menüsü kullanmayı tercih ederseniz kaldırılabilir) ~~  */
+ul.nav {
+	list-style: none; /* bu, liste işaretleyicisini kaldırır */
+	border-top: 1px solid #666; /* bu, bağlar için üst kenarlık oluşturur – diğerlerinin tümü LI’da bir alt kenarlık kullanılarak yerleştirilir */
+	margin-bottom: 15px; /* bu aşağıdaki içerikteki gezinmenin arasındaki alanı oluşturur */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* bu düğme ayrımını oluşturur */
+}
+ul.nav a, ul.nav a:visited { /* bu seçicileri gruplamak, bağlarınızın ziyaret edildikten sonra bile düğme görünümünü kaybetmemesini sağlar */
+	padding: 5px 5px 5px 15px;
+	display: block; /* bu, bağa blok özellikleri ekleyerek onu içeren LI’nın tamamının doldurmasını sağlar. Bu, alanın tümünün fare tıklatılmasına tepki vermesini sağlar. */
+	width: 160px;  /*bu genişlik düğmenin tamamını IE6 için tıklatılabilir hale getirir. IE6’yı desteklemeniz gerekmiyorsa, kaldırılabilir. Bu bağdaki dolguyu yan çubuk kabınızın genişliğinden çıkararak uygun genişliği hesaplayın. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* bu fare ve klavye gezginleri için arka plan ve metin rengini değiştirir */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ Altbilgi ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #CCC49F;
+	position: relative;/* bu, temizlemenin düzgün olması için IE6’ya hasLayout öğesini verir */
+	clear: both; /* bu temizleme özelliği .container öğesini sütunların nerede bittiğini anlamaya ve onları içermeye zorlar */
+}
+
+/* ~~ çeşitli float/clear sınıfları ~~ */
+.fltrt {  /* bu sınıf bir öğeyi sayfanızın sağında yüzdürmek için kullanılabilir. Yüzen öğe sayfada olması gereken bir sonraki öğeden önce gelmelidir. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* bu sınıf bir öğeyi sayfanızın solunda yüzdürmek için kullanılabilir. Yüzen öğe sayfada olması gereken bir sonraki öğeden önce gelmelidir. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* bu sınıf, #footer kaldırılırsa veya #container öğesinden çıkarılırsa, son yüzdürülen div’i (#container öğesi içinde) takiben bir <br /> veya boş bir div’e yerleştirilebilir */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="header"><a href="#"><img src="" alt="Logoyu Buraya Ekleyin" name="Insert_logo" width="180" height="90" id="Insert_logo" style="background-color: #C6D580; display:block;" /></a> 
+    <!-- end .header --></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><a href="#">Birinci bağ</a></li>
+      <li><a href="#">İkinci bağ</a></li>
+      <li><a href="#">Üçüncü bağ</a></li>
+      <li><a href="#">Dördüncü bağ</a></li>
+    </ul>
+    <p> Yukarıdaki bağlar, CSS ile stil verilmiş bir sırasız liste kullanarak temel bir gezgin yapısını gösterir. Bunu bir başlangıç noktası olarak kullanın ve kendi benzersiz görünümünüzü oluşturmak için özellikleri değiştirin. Açılır pencere menüleri istiyorsanız, bir Spry menüsü, Adobe Exchange’de bulunan bir menü widget’ı veya diğer javascript ya da CSS çözümlerinden kullanarak kendi menünüzü oluşturun.</p>
+    <p>Gezinmenin üst kısımda olmasını istiyorsanız, ul.nav öğesini sayfanın üst kısmına taşıyıp stili yeniden oluşturun.</p>
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <h1>Talimatlar</h1>
+    <p>Bu mizanpajlara yönelik CSS’nin çok fazla yorum içerdiğini unutmayın. İşinizin çoğunu Tasarım görünümünde yapıyorsanız, sabit mizanpajlar için CSS ile çalışmayla ilgili ipuçları almak için kodu inceleyin. Sitenizi yayınlamadan önce bu yorumları kaldırabilirsiniz. CSS mizanpajlarında kullanılan teknikler hakkında daha fazla bilgi için Adobe'nin Geliştirici Merkezi’ndeki bu makaleyi okuyun - <a href="http://www.adobe.com/go/adc_css_layouts">http://www.adobe.com/go/adc_css_layouts</a>.</p>
+    <h2>Temizleme Yöntemi</h2>
+    <p>Tüm sütunlar yüzdürüldüğünden, bu mizanpaj .container öğesinde clear:both bildirimini kullanır. Bu temizleme tekniği, .container öğesine yerleştirdiğiniz herhangi bir kenarlık veya arka plan rengini göstermek için .container öğesini sütunların nerede sonlanacağını anlamaya zorlar. Tasarımınız .footer öğesini .container öğesinden kaldırmanızı gerektiriyorsa, farklı bir temizleme yöntemi kullanmanız gerekir. En güvenilir yöntem son yüzdürülen sütununuzdan sonra (ancak .container öğesi kapanmadan önce) bir &lt;br class="clearfloat" /&gt; or &lt;div class="clearfloat"&gt;&lt;/div&gt; eklemek olacaktır. Bu aynı temizleme etkisini sağlar.</p>
+    <h3>Logo Değiştirme</h3>
+    <p>Bu mizanpajda logo yerleştirmek isteyebileceğiniz .header öğesinde bir görüntü yer tutucusu kullanılmış. Yer tutucuyu kaldırıp kendi bağlı logonuzla değiştirmeniz önerilir.  </p>
+    <p> SRC alanını kullanarak (yer tutucusunu kaldırmak ve değiştirmek yerine) logo görüntünüzde gezinmek için Özellik Denetimi’ni kullanırsanız satır içi arka planını ve görüntü özelliklerini kaldırmanız gerekir. Bu satır içi stiller yalnızca logo yer tutucusunun tarayıcılarda tanıtım amacıyla görünmesini sağlamak için kullanılır. </p>
+    <p>Satır içi stilleri kaldırmak için, CSS Stilleri panelinizin Geçerli’ye ayarlı olduğundan emin olun. Görüntüyü seçin ve CSS Stilleri panelinin Özellikler bölmesinde, görüntü ve arka plan özelliklerini sağ tıklatıp silin. (Tabii ki, her zaman doğrudan kodun içine girip satır içi stilleri oradaki yer tutucusu veya görüntüden silebilirsiniz.)</p>
+    <h4>Arka Planlar</h4>
+    <p>Doğal olarak, herhangi bir div’deki arka plan rengi yalnızca içerik uzunluğu boyunca görünür. Bu, bir yan sütun görünümü oluşturmak için bir arka plan rengi veya kenarlık kullanıyorsanız onun altbilgiye kadar uzanmak yerine içerik sonlandığında biteceği anlamına gelir. .content div’i devamlı daha fazla içeriğe sahip olacaksa, onu sütundan ayırmak için .content div’ine bir kenarlık yerleştirebilirsiniz.</p>
+    <!-- end .content --></div>
+  <div class="footer">
+    <p>Bu .footer öğesi Internet Explorer 6’ya altbilgi için hasLayout öğesi vermek ve düzgün bir şekilde temizleme yapmasını sağlamak için position:relative bildirimini içerir. IE6’yı desteklemeniz gerekmiyorsa, bunu kaldırabilirsiniz.</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
